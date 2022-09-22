@@ -1,7 +1,7 @@
 let headerText = document.getElementById('textHeader');
 let nextButton = document.getElementById('next');
 let example = document.getElementById('exampleText');
-let explainer = documment.getElementById('explainText');
+let explainer = document.getElementById('explainText');
 let resetBtn = document.getElementById('reset');
 
 
@@ -53,28 +53,35 @@ let pageView = [
     }
 ];
 
-
 let pageCount = 0;
 
-textHeader.textContent=pageView[pageCount].textHeader;
-next.textContent=pageView[pageCount].next;
-exampleText.textContent=pageView[pageCount].exampleText;
-explainText.textContent=pageView[pageCount].explainText;
+
+headerText.textContent=pageView[pageCount].headerText;
+nextButton.textContent=pageView[pageCount].nextButton;
+example.textContent=pageView[pageCount].example;
+explainer.textContent=pageView[pageCount].explainer;
 resetBtn.textContent=pageView[pageCount].resetBtn;
 
-nextButton.addEventListener('click', newPage);
-function newPage(e);
 
- if(e.target.id="next"){
+nextButton.addEventListener('click', newPage);            
+function newPage(e){
+
+ if(e.target.id =  "next"){
     pageCount++;
     console.log(pageCount);
- };
+ }
+};
 
 resetBtn.addEventListener('click', resetPage);
- function resetPage(e);
+ function resetPage(e){
  if(e.target.id = "reset"){
     pageCount = 0;
+    console.log(pageCount);
  }
+};
+
+
+
 
 
 
