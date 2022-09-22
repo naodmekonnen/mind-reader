@@ -5,6 +5,8 @@ let explainer = document.getElementById('explainText');
 let resetBtn = document.getElementById('reset');
 
 
+
+
 let pageView = [
     {
         "headerText": "I can read your mind",
@@ -55,6 +57,7 @@ let pageView = [
 
 let pageCount = 0;
 
+function renderPage(){
 
 headerText.textContent=pageView[pageCount].headerText;
 nextButton.textContent=pageView[pageCount].nextButton;
@@ -68,7 +71,6 @@ function newPage(e){
 
  if(e.target.id =  "next"){
     pageCount++;
-    console.log(pageCount);
  }
 };
 
@@ -76,10 +78,14 @@ resetBtn.addEventListener('click', resetPage);
  function resetPage(e){
  if(e.target.id = "reset"){
     pageCount = 0;
-    console.log(pageCount);
+    // console.log(pageCount);
  }
 };
 
+
+}
+renderPage();
+console.log(renderPage);
 
 
 
