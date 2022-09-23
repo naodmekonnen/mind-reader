@@ -18,6 +18,7 @@ body {
     border-radius: 0.5em;
     padding: 4em;
     text-align: center;
+    display: inline;
   }
 
   p {

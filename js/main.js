@@ -1,10 +1,9 @@
 let headerText = document.getElementById('textHeader');
 let nextButton = document.getElementById('next');
 let example = document.getElementById('exampleText');
-// let explainer = document.getElementById('explainText');
 let resetBtn = document.getElementById('reset');
 
-let icons = ['@','#','%','*','!','&','$','+','|' ];
+let icons = ['@','#','%','*','!','&','$','+','|'];
 
 
 
@@ -94,15 +93,11 @@ nextButton.addEventListener('click', ()=>{
     
 });
 
+pageCount = 0;
 resetBtn.addEventListener("click", () => {
     if(pageCount>0);
-    pageCount = 0;
     headerText.innerText=pageView[0].headerText;
     example.innerText=pageView[0].example;
-
-    return pageView;
-    console.log(pageView);
-
 });
 
 // resetBtn.addEventListener('click', renderPage);
