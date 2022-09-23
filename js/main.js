@@ -3,24 +3,45 @@ let nextButton = document.getElementById('next');
 let example = document.getElementById('exampleText');
 let resetBtn = document.getElementById('reset');
 
-let icons = ['@','#','%','*','!','&','$','+','|'];
+let icons = ['@','#','%','*','!','&','$','+','|']
 
+// function randomizer(){
+// let i = icons.length;
+//          while (--i > 0) {
+//             let newIcon = Math.floor(Math.random() * (i + 1));
+//             icons[newIcon] = icons[newIcon];
+// }
+//             console.log(icons);
+//             return icons;
+// let y = 0
+//      y++
+//     if (i % 9 === 0) {
+//         emptyArray.push(i + "--" + yourarrayofsymbolshere[y]);
+//     }
+//     else if (i % 9 !== 0) {
+//         emptyArray.push(i + "--" + yourarrayofsymbolshere[x]);  
 
+//     };
 
-    newIcon = [];
-    for (let i = 0; i <= 99; i++) {
-        let x = Math.floor(Math.random() * icons.length);
+//     headerText.innerHTML=pageView[4].newIcon;
+// };
 
-        let y = 0
-            y++
-    if (i % 9 === 0) {
-        newIcon.push(i + "-" + icons[y]);
-    }
-     else if(i % 9 !==0){
-        newIcon.push(i + "-" + icons[x]);
+// newIcon = [];
+
+//     for (let i = 0; i <= 99; i++) {
+
+//         let x = Math.floor(Math.random() * icons.length);
+
+//         let y = 0;
+//             y++;
+//     if (i % 9 === 0) {
+//         newIcon.push(i + "-" + icons[y]);
+//     }
+//      else if(i % 9 !==0){
+//         newIcon.push(i + "-" + icons[x]);
             
-     }
-    };
+//      }
+//     };
     
 let pageView = [
     {
@@ -80,6 +101,7 @@ nextButton.addEventListener('click', ()=>{
     else if(pageCount === 3){
         headerText.innerHTML=pageView[4].newIcon;
         example.innerHTML=pageView[4].example;
+        icons = randomizer();
     }
         
     else if(pageCount === 4){
@@ -123,14 +145,6 @@ resetBtn.addEventListener("click", () => {
 
 
 // };
-
-
-
-
-
-
-
-
 
 
 
