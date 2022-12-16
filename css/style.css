@@ -1,36 +1,10 @@
-body {
-    margin: 2em;
-    background-color: white;
-  }
-  
-  h2 {
-    font-style:initial;
-    color: rgb(26, 26, 26);
-    height: 400px;
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 500px;
+    height: 500px;
   }
 
-  .card {
-    background-color: white;
-    height: 800px;
-    width: 400px;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0.5em;
-    padding: 4em;
-    text-align: center;
-    display: inline;
+  h1 {
+      height: 200px;
   }
-
-  p {
-    font-size: 18px;
-  }
-
-  .button {
-    align-items: center;
-    border-radius: 20px;
-    display: inline-block;
-    width: fit-content;
-    padding: 0px 10px;
-  }
-
-  

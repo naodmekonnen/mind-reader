@@ -1,152 +1,89 @@
-let headerText = document.getElementById('textHeader');
-let nextButton = document.getElementById('next');
-let example = document.getElementById('exampleText');
-let resetBtn = document.getElementById('reset');
+let header = document.getElementById('header');
+let helper = document.getElementById('helper');
+let btn2 = document.getElementById('btn2'); 
+let btn1 = document.getElementById('btn1');
+let symbols = ['~', '!', '@', '#', '$', '%', '^', '&', '*'];
 
-let icons = ['@','#','%','*','!','&','$','+','|']
+let page = 0;
 
-// function randomizer(){
-// let i = icons.length;
-//          while (--i > 0) {
-//             let newIcon = Math.floor(Math.random() * (i + 1));
-//             icons[newIcon] = icons[newIcon];
-// }
-//             console.log(icons);
-//             return icons;
-// let y = 0
-//      y++
-//     if (i % 9 === 0) {
-//         emptyArray.push(i + "--" + yourarrayofsymbolshere[y]);
-//     }
-//     else if (i % 9 !== 0) {
-//         emptyArray.push(i + "--" + yourarrayofsymbolshere[x]);  
-
-//     };
-
-//     headerText.innerHTML=pageView[4].newIcon;
-// };
-
-// newIcon = [];
-
-//     for (let i = 0; i <= 99; i++) {
-
-//         let x = Math.floor(Math.random() * icons.length);
-
-//         let y = 0;
-//             y++;
-//     if (i % 9 === 0) {
-//         newIcon.push(i + "-" + icons[y]);
-//     }
-//      else if(i % 9 !==0){
-//         newIcon.push(i + "-" + icons[x]);
-            
-//      }
-//     };
-    
-let pageView = [
-    {
-        "headerText": "I can read your mind",
-        "example": '',
-
-    },
-
-    {
-        "headerText": "Pick a number from 0 - 99",
-        "example": "When you have that number <br> click next",
-    },
-
-    {
-        "headerText": "Add both digits together to get a new number",
-        "example": "Ex: 14 is 1 + 4 = 5 <br> Click next to proceed",
-
-    },
-
-    {
-        "headerText": "Subtract your new number from the original number",
-        "example": "EX: 14 - 5 = 9",
-
-    },
-
-    {
-        "headerText": " ",
-        "example": "Find your new number. <br> Note the symbol beside the number"
-    },
-
-    {
-        "headerText": "&",
-        "example": "Your symbol is:",
+let resetbtn = function () {
+    if (page === 0) {
+        page++;
+    } else {
+        page = 0;
     }
-];
+    changePage();
+}
 
-let pageCount;
+let forward = function () {
+    page++;
+    changePage();
+}
 
-nextButton.addEventListener('click', ()=>{
+btn2.addEventListener('click', resetbtn);
+btn1.addEventListener('click', forward);
 
-    if (pageCount === 0){
-        headerText.innerHTML=pageView[1].headerText;
-        example.innerHTML=pageView[1].example;
+  function numbers () {
+    let result = '';
+    for (let i = 0; i < 99; i++) {
+    result += ( (i+1) + ' = ' + symbols[i % symbols.length] + '<br>');
     }
+    return result;
+}
 
-    else if(pageCount === 1){
-        headerText.innerHTML=pageView[2].headerText;
-        example.innerHTML=pageView[2].example;
-    }
+let list = numbers();
 
+
+ function changePage() { 
+    switch(page) {
+        case 0:
+            header.innerHTML = 'I can read your mind';
+            helper.style.visibility = 'hidden';
+            btn2.innerHTML = 'GO';
+            btn1.style.visibility = 'hidden';
+            break;
+
+        case 1:
+            header.innerHTML = 'Pick a number from 01 - 99';
+            helper.innerHTML = 'When you have your number click next';
+            helper.style.visibility = 'visible';
+            btn2.innerHTML = 'Refresh';
+            btn1.innerHTML = 'Next';
+            btn1.style.visibility = 'visible';
+            break;
         
-    else if(pageCount === 2){
-        headerText.innerHTML=pageView[3].headerText;
-        example.innerHTML=pageView[3].example;
-    }
-
-    else if(pageCount === 3){
-        headerText.innerHTML=pageView[4].newIcon;
-        example.innerHTML=pageView[4].example;
-        icons = randomizer();
-    }
+        case 2:
+            header.innerHTML = 'Add both digits together to get a new number';
+            helper.innerHTML = 'Ex: 14 is 1 + 4 = 5 click next to proceed';
+            btn2.innerHTML = 'Refresh';
+            btn1.innerHTML = 'Next';
+            break;
         
-    else if(pageCount === 4){
-        headerText.innerText=pageView[5].headerText;
-        example.innerText=pageView[5].example;
+        case 3:
+            header.innerHTML = 'Subtract your new number from the original number';
+            helper.innerHTML = 'Ex: 14 - 5 = 9 click next to procced';
+            btn2.onclick = "Refresh";
+            btn1.onclick = 'Next';
+            break;
+
+        case 4: 
+            header.innerHTML = list;
+            helper.innerHTML = 'Find your new number. Note the symbol beside the number';
+            btn2.innerHTML = 'Refresh';
+            btn1.innerHTML = 'Reveal';
+            break;
+
+        case 5:
+            header.innerHTML = '&';
+            helper.innerHTML = 'your symbol is: &';
+            btn2.innerHTML = 'Refresh';
+            btn1.style.visibility = 'hidden';
+            break;
+
+
     }
-    
+ }
 
-    pageCount++;
-    console.log(pageCount);
-    
-});
-
-pageCount = 0;
-resetBtn.addEventListener("click", () => {
-    if(pageCount>0);
-    headerText.innerText=pageView[0].headerText;
-    example.innerText=pageView[0].example;
-});
-
-// resetBtn.addEventListener('click', renderPage);
-
-//     function renderPage(e){
-//     if(e.target.id =  "next"){
-//         pageCount++;
-//         // console.log(pageCount);
-//      }
-    
-//      if(e.target.id = "reset"){
-//         pageCount = 0;
-//         console.log(pageCount);
-//      }
-
-// headerText.innerText=pageView[pageCount].headerText;
-// nextButton.innerText=pageView[pageCount].nextButton;
-// example.innerText=pageView[pageCount].example;
-// explainer.innerText=pageView[pageCount].explainer;
-// resetBtn.innerText=pageView[pageCount].resetBtn;
-
-// console.log(renderPage);
-
-
-// };
-
-
-
+ changePage();
 
 
